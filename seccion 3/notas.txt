@@ -1,0 +1,3 @@
+--> un componente son pequeñas clases que cumplen una tarea especifica, ej. (una barra de navegación, un sidebar, un footer, un encargado de mostrar la info, etc..)
+--> Los componentes en angular son clases normales con un decorador especifica.
+--> Las directivas estructurales son instrucciones que le dicen a la parte de html que tiene que hacer (ngIf, ngFor, etc..)
