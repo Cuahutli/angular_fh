@@ -1,0 +1,17 @@
+<h1>Filtro Heroes <small>Marvel y DC</small></h1>
+<hr>
+
+<div class="card-columns">
+  <div class="card animated fadeIn fast" *ngFor="let heroe of heroes; let i = index" >
+    <!--<img class="card-img-top" src="{{heroe.img}}" alt="Card image cap">--> <!-- Esto y la sig linea es la misma forma de traer los datos nada más con interpolación o la nueva forma de angular 2-->
+    <img class="card-img-top" [src]="heroe.img" [alt]="heroe.nombre">
+    <div class="card-body">
+      <h4 class="card-title">{{heroe.nombre}}</h4>
+      <p class="card-text">{{heroe.bio}}</p>
+      <p class="card-text"><small class="text-muted">{{heroe.aparicion}}</small></p>
+      <button (click)="verHeroe(i)"
+        class="btn btn-outline-primary btn-block">Ver más</button> <!-- para usar el botón debemos crear una función en heroes.component que es la que llamamos en el evento (click) y como trabaja es muy similar al del link pero en el component -->
+      <a [routerLink]="['/heroe', i]" class="btn btn-outline-primary">Ver más...</a> <!-- el slash es importante para que se vaya a la base-->
+    </div>
+  </div>
+</div>
