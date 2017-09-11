@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 
 import { HeroesService } from "../../services/heroes.service";
@@ -7,15 +7,17 @@ import { HeroesService } from "../../services/heroes.service";
   selector: 'app-buscar',
   templateUrl: './buscar.component.html',
 })
-export class BuscarComponent {
+export class BuscarComponent implements OnInit{
   heroes:any[] = [];
 
   constructor( private _activatedRoute:ActivatedRoute, 
                private _heroesService:HeroesService) {
+   }
+   ngOnInit(){
       this._activatedRoute.params.subscribe( params => {
-        console.log(params['termino']);
+        // console.log(params['termino']);
         this.heroes = this._heroesService.buscarHeroes(params['termino']);
-        console.log(this.heroes);
+        // console.log(this.heroes);
       })
    }
 

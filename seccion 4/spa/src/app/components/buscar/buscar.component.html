@@ -9,8 +9,6 @@
       <h4 class="card-title">{{heroe.nombre}}</h4>
       <p class="card-text">{{heroe.bio}}</p>
       <p class="card-text"><small class="text-muted">{{heroe.aparicion}}</small></p>
-      <button (click)="verHeroe(i)"
-        class="btn btn-outline-primary btn-block">Ver más</button> <!-- para usar el botón debemos crear una función en heroes.component que es la que llamamos en el evento (click) y como trabaja es muy similar al del link pero en el component -->
       <a [routerLink]="['/heroe', i]" class="btn btn-outline-primary">Ver más...</a> <!-- el slash es importante para que se vaya a la base-->
     </div>
   </div>
