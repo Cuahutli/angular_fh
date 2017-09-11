@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpModule } from "@angular/http";
 
 // Rutas
 import { APP_ROUTING } from "./app.routes";
@@ -27,6 +27,7 @@ import { HeroeComponent } from './components/heroe/heroe.component';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     APP_ROUTING
   ],
   providers: [HeroesService], // aqui van todos los servicios
