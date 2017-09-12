@@ -30,5 +30,8 @@ export class AppComponent {
   nombre2 ="cuahuTli miguEl ulLOa roBles";
 
   video = "z_9qIHVqGw4"
+
+  activar:boolean = true;
+  password = "DaloinKs";
   
 }
