@@ -25,5 +25,6 @@ export class AppComponent {
   valorDePromesa = new Promise( (resolve, reject) => {
     setTimeout( () =>{resolve("Llegó la data")}, 3500);
   });
+  fecha = new Date();
   
 }
