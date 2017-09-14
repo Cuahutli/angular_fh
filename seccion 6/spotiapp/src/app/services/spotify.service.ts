@@ -35,21 +35,37 @@ export class SpotifyService {
 
   getArtista (id:string){
     
+  
+      let headers = new Headers();
+      headers.append('authorization', this.token)
+      let query = id;
+      let url = this.urlArtista + query;
+      
+      return this._http.get(url, {headers})
+                        .map( res => {
+                            console.log(res.json());
+                            // this.artistas = res.json().artists.items;
+                            // console.log(this.artistas);
+                            // return this.artistas;
+                            return res.json();
+                        });
+  
+  }
+
+  getTop (id:string){
     
-        let headers = new Headers();
-        headers.append('authorization', this.token)
-        let query = id;
-        let url = this.urlArtista + query;
-        
-        return this._http.get(url, {headers})
-                          .map( res => {
-                              console.log(res.json());
-                              // this.artistas = res.json().artists.items;
-                              // console.log(this.artistas);
-                              // return this.artistas;
-                              return res.json();
-                          });
-    
-      }
+  
+      let headers = new Headers();
+      headers.append('authorization', this.token)
+      let query = `${id}/top-tracks?country=MX`;
+      let url = this.urlArtista + query;
+      
+      return this._http.get(url, {headers})
+                        .map( res => {
+                            console.log(res.json());
+                            return res.json().tracks;
+                        });
+  
+  }
 
 }
