@@ -12,13 +12,15 @@ import { SearchComponent } from './components/search/search.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 
 import { APP_ROUTING } from "./app.routes";
+import { SinfotoPipe } from './pipes/sinfoto.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SearchComponent,
-    NavbarComponent
+    NavbarComponent,
+    SinfotoPipe
   ],
   imports: [
     BrowserModule,

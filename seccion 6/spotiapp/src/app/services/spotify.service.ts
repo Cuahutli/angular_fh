@@ -15,7 +15,7 @@ export class SpotifyService {
 
 
     let headers = new Headers();
-    headers.append('authorization', 'Bearer BQBq-nOuT9EbWNkfeXyJUxQf1h6_Wuf3a3igjKk_74RYNC19vxS-Yw2chCfgZHqyD9SBasEWhcVEifyO_Ejq3g;')
+    headers.append('authorization', 'Bearer BQDUFTHZe0eJyr8V1GuSqSQjdcePOGBeoW6S3k5-Dd4mwOMBIj2VMOgpPFy7Wpyc9Lk-n0oOeiFeaPU5Rht8EA;')
     let query = `?q=${ termino }&type=artist`;
     let url = this.urlBusqueda + query;
     
