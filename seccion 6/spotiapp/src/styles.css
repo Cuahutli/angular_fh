@@ -77,10 +77,9 @@ hr{
 }
 
 .img-pista{
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   margin-bottom: 10px;
-  margin-top: 10px;
 }
 
 .cancion{
@@ -102,4 +101,5 @@ hr{
 .nombre-artista{
   font-size: 1.8em;
   font-weight: bold;
+
 }
