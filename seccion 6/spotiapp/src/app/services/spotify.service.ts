@@ -6,7 +6,9 @@ import "rxjs/add/operator/map";
 export class SpotifyService {
 
   artistas:any[] = [];
+  token = "Bearer BQDUFTHZe0eJyr8V1GuSqSQjdcePOGBeoW6S3k5-Dd4mwOMBIj2VMOgpPFy7Wpyc9Lk-n0oOeiFeaPU5Rht8EA;";
   urlBusqueda:string = "https://api.spotify.com/v1/search";
+  urlArtista:string = "https://api.spotify.com/v1/artists/"
 
 
   constructor(private _http:Http) { }
@@ -15,7 +17,7 @@ export class SpotifyService {
 
 
     let headers = new Headers();
-    headers.append('authorization', 'Bearer BQDUFTHZe0eJyr8V1GuSqSQjdcePOGBeoW6S3k5-Dd4mwOMBIj2VMOgpPFy7Wpyc9Lk-n0oOeiFeaPU5Rht8EA;')
+    headers.append('authorization', this.token)
     let query = `?q=${ termino }&type=artist`;
     let url = this.urlBusqueda + query;
     
@@ -30,5 +32,24 @@ export class SpotifyService {
                       });
 
   }
+
+  getArtista (id:string){
+    
+    
+        let headers = new Headers();
+        headers.append('authorization', this.token)
+        let query = id;
+        let url = this.urlArtista + query;
+        
+        return this._http.get(url, {headers})
+                          .map( res => {
+                              console.log(res.json());
+                              // this.artistas = res.json().artists.items;
+                              // console.log(this.artistas);
+                              // return this.artistas;
+                              return res.json();
+                          });
+    
+      }
 
 }
