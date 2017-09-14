@@ -1,1 +1,27 @@
-{{artista|json}}
+<div class="container">
+  <div class="row  top-30">
+    <div class="col-md-3">
+      <img [src]="artista.images[1].url" alt="" class="img-fluid rounded img-thumbnail">
+    </div>
+    <div class="col-md-9 text-center">
+        <p class="nombre-artista">{{artista.name}}</p>
+        <a href="" class="btn btn-danger">Regresar</a>
+        <a href="" class="btn btn-success">Abrir en Spotify</a>
+    </div>
+  </div>
+  <br><br>
+  <h3>Top tracks</h3>
+  <hr>
+
+  <div class=" row cancion" *ngFor="let pista of pistas" >
+      <div class="col-md-2">
+        <img [src]="pista.album.images[1].url" alt="Algo aqui" class="img-fluid rounded img-pista">
+      </div>
+      <div class="col-md-10">
+          <p class="text-left nombre-pista">
+            {{pista.name}}
+          </p>
+      </div>
+  </div>
+
+</div>
