@@ -1,8 +1,8 @@
 <div class="container top-30">
   <div class="row">
-    <h1>{{termino}}</h1>
-  
-    <div class="com-md-3">
+    <div class="col-md-3">
+        <h3>¿A quién buscamos?</h3>
+        <br>
       <label for="termino">Buscador de Artistas: </label>
       <input type="text" name="termino" placeholder="Buscar por Artista" [(ngModel)]="termino" class="form-control" (keyup)="buscarArtista()"> 
       <hr>
@@ -11,8 +11,8 @@
 
   <div class="col-md-9">
     <div class="row">
-      <div class="class-md-3 puntero text-center" *ngFor="let artista of _spotifyService.artistas" [routerLink] = "['/artista', artista.id]" >
-        <img [src]="artista.images|sinfoto" alt="" class="img-fluid img-thumbnail">
+      <div class="col-md-4 puntero text-center" *ngFor="let artista of _spotifyService.artistas" [routerLink] = "['/artista', artista.id]" >
+        <img [src]="artista.images|sinfoto" alt="" class="img-fluid img-thumbnail img-300">
         <p>{{artista.name}}</p>
         <hr>
       </div>

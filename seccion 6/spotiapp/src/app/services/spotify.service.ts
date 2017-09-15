@@ -6,7 +6,9 @@ import "rxjs/add/operator/map";
 export class SpotifyService {
 
   artistas:any[] = [];
-  token = "Bearer BQAra002Za_OtgAS6_V3062ofjWzamz1vcBh-jlTOQlT4RzACF3ulh2ozO9cfsorfr4jeNTdM6S5re-wKhgcTQ;";
+  token_part_left = "Bearer";
+  token_part_right = "BQBhYbSzLiZw6qaiGt-jgItxh2eozuxaLUuJqHHqP1vSC18Skp8mXLzhcTKPXWHylI7KViIe7FwQLSIgrT47Sg";
+  token = this.token_part_left +" " + this.token_part_right +";";
   urlBusqueda:string = "https://api.spotify.com/v1/search";
   urlArtista:string = "https://api.spotify.com/v1/artists/"
 
@@ -28,6 +30,7 @@ export class SpotifyService {
                           // console.log(res.json().artists.items);
                           this.artistas = res.json().artists.items;
                           console.log(this.artistas);
+                          console.log("Status:" + res.status);
                           // return this.artistas;
                       });
 
@@ -43,10 +46,11 @@ export class SpotifyService {
       
       return this._http.get(url, {headers})
                         .map( res => {
-                            console.log(res.json());
+                            // console.log(res.json());
                             // this.artistas = res.json().artists.items;
                             // console.log(this.artistas);
                             // return this.artistas;
+                            console.log("Status:" + res.status);
                             return res.json();
                         });
   
@@ -62,7 +66,8 @@ export class SpotifyService {
       
       return this._http.get(url, {headers})
                         .map( res => {
-                            console.log(res.json());
+                            // console.log(res.json());
+                            console.log("Status:" + res.status);
                             return res.json().tracks;
                         });
   

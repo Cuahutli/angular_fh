@@ -19,7 +19,7 @@ export class ArtistaComponent implements OnInit {
     this._activatedRoute.params
       .map(parametros => parametros['id'])
       .subscribe( id => {
-        console.log(id);
+        // console.log(id);
         this._spotifyService.getArtista(id).subscribe( data => {
           this.artista = data;
         });
