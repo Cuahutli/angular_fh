@@ -11,7 +11,7 @@
     </div>
   </div>
   <br><br>
-  <div *ngIf="pistas">
+  <div *ngIf="pistas" class="container">
     <h3>Top tracks!</h3>
     <hr>
     <div class="col-md-12">
@@ -39,10 +39,11 @@
                       {{pista.popularity}}
                     </td>
                     <td>
-                    <audio controls>
+                    <!--<audio controls>
                       <source [src]="pista.preview_url">
                         Tú navegador es muy viejo
-                    </audio>
+                    </audio>-->
+                    <iframe [src]="pista.uri|domseguro:'https://open.spotify.com/embed?uri='" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
                   </td>
                 </tr>
               </tbody>
