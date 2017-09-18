@@ -29,4 +29,10 @@ export class AgregarComponent implements OnInit {
         this.nombreItem = "";
     }
 
+    borrar(idx:number){
+        // console.log("borraremos este index:" + idx);
+        let borrado = this.items.splice(idx,1);
+        console.log(borrado[0].nombre);
+    }
+
 }
