@@ -8,6 +8,10 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+//Servicios
+
+import { ListaDeseosService } from "./services/lista-deseos.service"
+
 
 import { PendientesComponent } from "../pages/pendientes/pendientes.component";
 import { TerminadosComponent } from "../pages/terminados/terminados.component";
@@ -33,7 +37,8 @@ import { TerminadosComponent } from "../pages/terminados/terminados.component";
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ListaDeseosService
   ]
 })
 export class AppModule {}
