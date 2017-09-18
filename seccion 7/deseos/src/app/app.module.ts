@@ -15,13 +15,20 @@ import { ListaDeseosService } from "./services/lista-deseos.service"
 
 import { PendientesComponent } from "../pages/pendientes/pendientes.component";
 import { TerminadosComponent } from "../pages/terminados/terminados.component";
+import { AgregarComponent } from "../pages/agregar/agregar.component";
+
+//pipes
+
+import { PlaceHolderPipe } from "./pipes/placeholder.pipe";
 
 @NgModule({
   declarations: [
     MyApp,
     TabsPage,
     PendientesComponent,
-    TerminadosComponent
+    TerminadosComponent,
+    AgregarComponent,
+    PlaceHolderPipe
   ],
   imports: [
     BrowserModule,
@@ -32,7 +39,8 @@ import { TerminadosComponent } from "../pages/terminados/terminados.component";
     MyApp,
     TabsPage,
     PendientesComponent,
-    TerminadosComponent
+    TerminadosComponent,
+    AgregarComponent
   ],
   providers: [
     StatusBar,
