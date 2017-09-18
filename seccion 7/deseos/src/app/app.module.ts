@@ -16,6 +16,7 @@ import { ListaDeseosService } from "./services/lista-deseos.service"
 import { PendientesComponent } from "../pages/pendientes/pendientes.component";
 import { TerminadosComponent } from "../pages/terminados/terminados.component";
 import { AgregarComponent } from "../pages/agregar/agregar.component";
+import { DetalleComponent } from "../pages/detalle/detalle.component";
 
 //pipes
 
@@ -28,6 +29,7 @@ import { PlaceHolderPipe } from "./pipes/placeholder.pipe";
     PendientesComponent,
     TerminadosComponent,
     AgregarComponent,
+    DetalleComponent,
     PlaceHolderPipe
   ],
   imports: [
@@ -40,7 +42,8 @@ import { PlaceHolderPipe } from "./pipes/placeholder.pipe";
     TabsPage,
     PendientesComponent,
     TerminadosComponent,
-    AgregarComponent
+    AgregarComponent,
+    DetalleComponent
   ],
   providers: [
     StatusBar,
