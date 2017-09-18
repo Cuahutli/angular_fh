@@ -21,6 +21,7 @@ import { DetalleComponent } from "../pages/detalle/detalle.component";
 //pipes
 
 import { PlaceHolderPipe } from "./pipes/placeholder.pipe";
+import { PendientesPipe } from "./pipes/pendientes.pipe";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { PlaceHolderPipe } from "./pipes/placeholder.pipe";
     TerminadosComponent,
     AgregarComponent,
     DetalleComponent,
-    PlaceHolderPipe
+    PlaceHolderPipe,
+    PendientesPipe
   ],
   imports: [
     BrowserModule,
