@@ -6,7 +6,7 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 export class ResaltadoDirective {
 
   constructor(private _el:ElementRef) { 
-    console.log("directiva llamada")
+    // console.log("directiva llamada")
     
   }
 
