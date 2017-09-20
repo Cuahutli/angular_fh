@@ -11,7 +11,8 @@ export class AuthService {
     domain: 'scit.auth0.com',
     responseType: 'token id_token',
     audience: 'https://scit.auth0.com/userinfo',
-    redirectUri: 'http://localhost:4200/callback',      
+    // redirectUri: 'http://localhost:4200/callback',      
+    redirectUri: 'http://www.cmscit.pw/angular_fh/authapp/#/callback',      
     scope: 'openid profile'
   });
 
