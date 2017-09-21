@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { FormGroup, FormControl, Validators, FormArray } from "@angular/forms";
 
 @Component({
   selector: 'app-data',
@@ -14,7 +14,8 @@ export class DataComponent implements OnInit {
       nombre:'Cuahutli',
       apellido:'Ulloa'
     },
-    email:'cmulloa@gruposcit.com'
+    email:'cmulloa@gruposcit.com',
+    //pasatiempos: ["correr","dormir", "comer"]
   }
 
   constructor() { 
@@ -31,11 +32,14 @@ export class DataComponent implements OnInit {
                                 Validators.required, 
                                 Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$')
                               ]),
-
+      'pasatiempos': new FormArray([
+          new FormControl('Correr', Validators.required)
+      ])
+                              
     });
 
     // cargar el objeto usuario en el formulario
-    this.forma.setValue(this.usuario);
+    //this.forma.setValue(this.usuario);
 
   }
 
@@ -52,6 +56,11 @@ export class DataComponent implements OnInit {
         apellido:""
       }
     })
+  }
+
+  agregarPasatiempo(){
+    console.log((<FormArray>this.forma.controls['pasatiempos']));
+    (<FormArray>this.forma.controls['pasatiempos']).push(new FormControl('Dormir', Validators.required));
   }
 
 }
