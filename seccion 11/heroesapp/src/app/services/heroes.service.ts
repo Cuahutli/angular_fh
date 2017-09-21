@@ -9,6 +9,7 @@ import { Heroe } from "../interfaces/heroe.interface";
 export class HeroesService {
 
   heroesURL:string = "https://heroesapp-9a17c.firebaseio.com/heroes.json"
+  heroeURL:string = "https://heroesapp-9a17c.firebaseio.com/heroes/"
 
   constructor(private _http:Http) {
 
@@ -26,5 +27,21 @@ export class HeroesService {
             return res.json()
           });
    }
+
+
+   actualizarHeroe(heroe:Heroe, key$:string){
+    let body = JSON.stringify(heroe); // genera un string de un json válido
+    let headers = new Headers({
+      'Content-type':'application/json'
+    }); 
+
+    let url = `${this.heroeURL}${ key$ }.json`
+
+    return this._http.put( url, body, { headers })  // esto { headers:headers } es igual a esto { headers} en ES6, si se llaman igual se pueden omitir
+         .map( res=> {
+           console.log(res.json());
+           return res.json()
+         });
+  }
 
 }
