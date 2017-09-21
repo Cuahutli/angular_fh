@@ -1,9 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from "@angular/http";
+import { FormsModule } from "@angular/forms";
 
 //rutas
 import { APP_ROUTING } from "./app.routes";
+
+//servicios
+import { HeroesService } from "./services/heroes.service";
 
 //componentes
 import { AppComponent } from './app.component';
@@ -20,9 +24,12 @@ import { HeroeComponent } from './components/heroes/heroe.component';
   imports: [
     BrowserModule,
     HttpModule,
+    FormsModule,
     APP_ROUTING
   ],
-  providers: [],
+  providers: [
+    HeroesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
