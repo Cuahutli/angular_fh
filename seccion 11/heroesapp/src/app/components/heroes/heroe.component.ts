@@ -40,14 +40,17 @@ export class HeroeComponent implements OnInit {
     if( this.id == "nuevo"){
       //insertando
       this._heroesService.nuevoHeroe(this.heroe).subscribe( data => {
-          this._router.navigate(['/heroe', data.name])
+          // this._router.navigate(['/heroe', data.name])
+          
+          this._router.navigate(['/heroes'])
         }, error => {
         console.error(error)
       })
     }else{
       //actualizando
       this._heroesService.actualizarHeroe(this.heroe, this.id).subscribe( data => {
-        console.log(data);
+        // console.log(data);
+        this._router.navigate(['/heroes'])
       }, error => {
         console.error(error)
       })
