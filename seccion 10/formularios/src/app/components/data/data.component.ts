@@ -34,9 +34,13 @@ export class DataComponent implements OnInit {
                               ]),
       'pasatiempos': new FormArray([
           new FormControl('Correr', Validators.required)
-      ])
+      ]),
+      'password1': new FormControl('', Validators.required),
+      'password2': new FormControl('', Validators.required),
                               
     });
+
+    this.forma.controls['password2'].setValidators([Validators.required, this.noIgual.bind(this.forma)]);
 
     // cargar el objeto usuario en el formulario
     //this.forma.setValue(this.usuario);
@@ -67,6 +71,18 @@ export class DataComponent implements OnInit {
     if (control.value == "ulloa"){
       return {
         noulloa:true
+      };
+    }
+    return null;
+  }
+
+  noIgual( control:FormControl ): any{ //{[s:string]:boolean}{
+    let forma:any = this;
+    // console.log(forma);
+    
+    if (control.value !== forma.controls['password1'].value){
+      return {
+        noiguales:true
       };
     }
     return null;
