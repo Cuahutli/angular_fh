@@ -9,7 +9,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 export class DataComponent implements OnInit {
 
   forma:FormGroup;
-  usuario = {
+  usuario:any = {
     nombrecompleto: {
       nombre:'Cuahutli',
       apellido:'Ulloa'
@@ -20,7 +20,7 @@ export class DataComponent implements OnInit {
   constructor() { 
     this.forma = new FormGroup({
       'nombrecompleto': new FormGroup({
-        'nombre': new FormControl('', [
+        'nombre': new FormControl( '' , [
                                   Validators.required,
                                   Validators.minLength(3)
                                 ]),
@@ -33,6 +33,10 @@ export class DataComponent implements OnInit {
                               ]),
 
     });
+
+    // cargar el objeto usuario en el formulario
+    this.forma.setValue(this.usuario);
+
   }
 
   ngOnInit() {
@@ -40,7 +44,14 @@ export class DataComponent implements OnInit {
 
   guardarCambios(){
     console.log(this.forma.value);
-    console.log(this.forma.controls['nombre']);
+    //this.forma.reset(this.usuario);
+    this.forma.reset({
+      email:"",
+      nombrecompleto:{
+        nombre:"",
+        apellido:""
+      }
+    })
   }
 
 }
