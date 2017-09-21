@@ -22,6 +22,11 @@ export class HeroeComponent implements OnInit {
   constructor(private _heroesService:HeroesService, private _router:Router, private _route:ActivatedRoute) { 
     this._route.params.subscribe( parametros =>{
       this.id = parametros['id'];
+      if (this.id !== 'nuevo'){
+        this._heroesService.obtenerHeroe(this.id).subscribe( data=>{
+          this.heroe = data;
+        });
+      }
     });
   }
   
@@ -44,11 +49,18 @@ export class HeroeComponent implements OnInit {
       this._heroesService.actualizarHeroe(this.heroe, this.id).subscribe( data => {
         console.log(data);
       }, error => {
-      console.error(error)
-    })
+        console.error(error)
+      })
       
     }
     
-  }  
+  }
+  
+  agregarNuevo(forma:NgForm){
+    this._router.navigate(['/heroe','nuevo']);
+    forma.reset({
+      casa:"Marvel"
+    });
+  }
 
 }
