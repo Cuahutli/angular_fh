@@ -21,7 +21,7 @@
             <th>#</th>
             <th>Nombre</th>
             <th>Casa</th>
-            <th>Opciones</th>
+            <th class="text-right">Opciones</th>
           </tr>
         </thead>
         <tbody>
@@ -29,7 +29,10 @@
             <td>{{ i + 1 }}</td>
             <td>{{ heroes[k].nombre}}</td>
             <td>{{ heroes[k].casa}}</td>
-            <td>{{ heroes[k].bio}}</td>
+            <td class="text-right w270">
+              <button class="btn btn-outline-success" [routerLink]="['/heroe', k]">Editar</button>
+              <button class="btn btn-outline-danger" (click)="eliminarHeroe(k)">Eliminar</button>
+            </td>
           </tr>
         </tbody>
       </table>
