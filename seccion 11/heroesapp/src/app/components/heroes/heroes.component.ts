@@ -9,6 +9,7 @@ import { Heroe } from "../../interfaces/heroe.interface";
 })
 export class HeroesComponent implements OnInit {
   heroes:any[] = [];
+  loading:boolean =true;
 
   constructor(
     private _heroesService:HeroesService
@@ -21,7 +22,12 @@ export class HeroesComponent implements OnInit {
       //   h.key$ = key$;
       //   this.heroes.push(data[key$]);
       // }
-      this.heroes = data;
+      
+      setTimeout(()=>{
+        this.heroes = data;
+        this.loading=false;
+      },300)
+      
     });
   }
 
