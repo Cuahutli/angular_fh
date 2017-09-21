@@ -44,6 +44,26 @@ export class DataComponent implements OnInit {
 
     this.forma.controls['password2'].setValidators([Validators.required, this.noIgual.bind(this.forma)]);
 
+    // con esto se está al pendiente de toda la forma
+    // this.forma.valueChanges.subscribe(
+    //   data => {
+    //     console.log(data);
+    //   }
+    // );
+
+    // con esto estamos al pendiente de un campo en especifico
+    // this.forma.controls['username'].valueChanges.subscribe(
+    //   data => {
+    //     console.log(data);
+    //   }
+    // );
+
+    // nos suscribimos al estado para estar al pendiente de los cambios
+    this.forma.controls['username'].statusChanges.subscribe(
+      data => {
+        console.log(data);
+      }
+    )
     // cargar el objeto usuario en el formulario
     //this.forma.setValue(this.usuario);
 
