@@ -25,7 +25,7 @@ export class DataComponent implements OnInit {
                                   Validators.required,
                                   Validators.minLength(3)
                                 ]),
-        'apellido': new FormControl('', Validators.required),
+        'apellido': new FormControl('', [Validators.required, this.noUlloa ]),
       }),
       'email': new FormControl('', 
                               [
@@ -49,18 +49,27 @@ export class DataComponent implements OnInit {
   guardarCambios(){
     console.log(this.forma.value);
     //this.forma.reset(this.usuario);
-    this.forma.reset({
-      email:"",
-      nombrecompleto:{
-        nombre:"",
-        apellido:""
-      }
-    })
+    // this.forma.reset({
+    //   email:"",
+    //   nombrecompleto:{
+    //     nombre:"",
+    //     apellido:""
+    //   }
+    // })
   }
 
   agregarPasatiempo(){
     console.log((<FormArray>this.forma.controls['pasatiempos']));
-    (<FormArray>this.forma.controls['pasatiempos']).push(new FormControl('Dormir', Validators.required));
+    (<FormArray>this.forma.controls['pasatiempos']).push(new FormControl('', Validators.required));
+  }
+
+  noUlloa( control:FormControl ): {[s:string]:boolean}{
+    if (control.value == "ulloa"){
+      return {
+        noulloa:true
+      };
+    }
+    return null;
   }
 
 }
