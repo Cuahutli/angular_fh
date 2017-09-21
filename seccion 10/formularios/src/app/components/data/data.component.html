@@ -11,7 +11,16 @@
         <input class="form-control"
                type="text"
                placeholder="Nombre"
-               formControlName="nombre">
+               formControlName="nombre"
+               [ngClass]="{'is-invalid':forma.get('nombre').errors!=null && forma.get('nombre').touched, 'is-valid':forma.get('nombre').errors==null}" 
+              >
+    
+      <div *ngIf="forma.controls['nombre'].errors?.required" [ngClass]="{'invalid-feedback':forma.controls['nombre'].errors != null}" >
+          Este campo es requerido
+      </div>
+      <div *ngIf="forma.controls['nombre'].errors?.minlength" [ngClass]="{'invalid-feedback':forma.controls['nombre'].errors != null}" >
+          Este campo debe tener por lo menos {{forma.controls['nombre'].errors.minlength.requiredLength}} caracteres
+      </div>
       </div>
     </div>
 
@@ -22,7 +31,12 @@
         <input class="form-control"
                type="text"
                placeholder="Apellido"
-               formControlName="apellido">
+               formControlName="apellido"
+               [ngClass]="{'is-invalid':forma.get('apellido').errors!=null && forma.get('apellido').touched, 'is-valid':forma.get('apellido').errors==null}">
+
+        <div *ngIf="forma.controls['apellido'].errors?.required" [ngClass]="{'invalid-feedback':forma.controls['apellido'].errors != null}" >
+          Este campo es requerido
+        </div>      
       </div>
     </div>
 
@@ -35,7 +49,14 @@
       <input class="form-control"
              type="email"
              placeholder="Correo electrónico"
-             formControlName="email">
+             formControlName="email"
+             [ngClass]="{'is-invalid':forma.get('email').errors!=null && forma.get('email').touched, 'is-valid':forma.get('email').errors==null}">
+      <div *ngIf="forma.controls['email'].errors?.required" [ngClass]="{'invalid-feedback':forma.controls['email'].errors != null}" >
+        Este campo es requerido
+      </div>  
+      <div *ngIf="forma.controls['email'].errors?.pattern" [ngClass]="{'invalid-feedback':forma.controls['email'].errors != null}" >
+          No es un correo válido
+      </div>  
     </div>
   </div>
 
@@ -44,12 +65,14 @@
   <div class="form-group row">
     <label class="col-2 col-form-label">&nbsp;</label>
     <div class="input-group col-md-8">
-      <button type="submit" class="btn btn-outline-primary">
+      <button type="submit" class="btn btn-outline-primary" [disabled]="forma.invalid">
         Guardar
       </button>
     </div>
   </div>
 
   {{forma.valid}}
+ 
 
 </form>
+  

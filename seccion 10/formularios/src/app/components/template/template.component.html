@@ -17,10 +17,10 @@
                minlength="3"
                required
                #nombre="ngModel">
-        <div *ngIf="nombre.errors?.required" [ngClass]="{'invalid-feedback':nombre.errors!=null}"  >
+        <div *ngIf="!nombre.errors?.required" [ngClass]="{'invalid-feedback':nombre.errors!=null}"  >
           Este campo es requerido
         </div>
-        <div *ngIf="nombre.errors?.minlength" [ngClass]="{'invalid-feedback':nombre.errors!=null}">
+        <div *ngIf="!nombre.errors?.minlength" [ngClass]="{'invalid-feedback':nombre.errors!=null}">
             Este campo debe tener por lo menos {{nombre.errors.minlength.requiredLength}} caracteres
           </div>
       </div>

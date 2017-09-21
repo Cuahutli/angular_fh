@@ -12,12 +12,15 @@ export class DataComponent implements OnInit {
 
   constructor() { 
     this.forma = new FormGroup({
-      'nombre': new FormControl('', Validators.required),
+      'nombre': new FormControl('', [
+                                Validators.required,
+                                Validators.minLength(3)
+                              ]),
       'apellido': new FormControl('', Validators.required),
       'email': new FormControl('', 
                               [
                                 Validators.required, 
-                                Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')
+                                Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$')
                               ]),
 
     });
@@ -28,6 +31,7 @@ export class DataComponent implements OnInit {
 
   guardarCambios(){
     console.log(this.forma.value);
+    console.log(this.forma.controls['nombre']);
   }
 
 }
