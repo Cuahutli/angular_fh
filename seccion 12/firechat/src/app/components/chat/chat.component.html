@@ -2,7 +2,7 @@
 <hr>
 
 <div id="app-mensajes" class="app-mensajes">
-  <div class="text-right">
+  <!--<div class="text-right">
     <span class="badge badge-primary">Cuahutli</span>
     <p>
       Este es mi primer mensaje de prueba
@@ -19,6 +19,16 @@
     <p>
       Este es mi primer mensaje de prueba
     </p>
+  </div>-->
+
+  <div *ngFor="let chat of _cs.chats | async" 
+        [ngClass]="{'text-right': _cs.usuario.nombre == chat.nombre, 'text-left': _cs.usuario.nombre != chat.nombre}">
+      <span class="badge" [ngClass]="{'badge-primary': _cs.usuario.nombre == chat.nombre, 'badge-success': _cs.usuario.nombre != chat.nombre}">
+        {{chat.nombre}}
+      </span>
+      <p>
+        {{chat.mensaje}}
+      </p>
   </div>
 </div>
 <input type="text" name="mensaje" [(ngModel)]="mensaje"  (keyup.enter)="enviar()" class="form-control" placeholder="mensaje...">
