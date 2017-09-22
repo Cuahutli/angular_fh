@@ -12,4 +12,8 @@ export class AppComponent {
   constructor(public _cs:ChatService){
     
   }
+
+  salir(){
+    this._cs.logout();
+  }
 }

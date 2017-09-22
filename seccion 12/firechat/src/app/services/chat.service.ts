@@ -38,7 +38,13 @@ export class ChatService {
   }
 
   login(proveedor:string) {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()) //regresa una promesa
+    let provider:any;
+    if(proveedor === "google"){
+      provider = new firebase.auth.GoogleAuthProvider();
+    }else{
+      provider = new firebase.auth.TwitterAuthProvider();
+    }
+    this.afAuth.auth.signInWithPopup(provider)  //regresa una promesa
     .then( (resp)=>{
       console.log(resp);
       this.usuario = resp.user;
@@ -47,6 +53,8 @@ export class ChatService {
   }
 
   logout() {
+    localStorage.removeItem('usuario');
+    this.usuario =null;
     this.afAuth.auth.signOut();
   }
 
