@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+
 
 
 @Component({
@@ -8,8 +8,8 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  chats: FirebaseListObservable<any[]>;
-  constructor(af: AngularFireDatabase) {
-    this.chats = af.list('/chats');
+  
+  constructor(){
+    
   }
 }

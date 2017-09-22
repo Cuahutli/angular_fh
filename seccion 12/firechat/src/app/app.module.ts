@@ -14,8 +14,12 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 // aquií es el archivo enviroment donde metimos la config de firebase
 import { environment } from '../environments/environment';
 
+//componentes
 import { AppComponent } from './app.component';
 import { ChatComponent } from './components/chat/chat.component';
+
+//servicios
+import { ChatService } from "./services/chat.service";
 
 @NgModule({
   declarations: [
@@ -30,7 +34,7 @@ import { ChatComponent } from './components/chat/chat.component';
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
     
   ],
-  providers: [],
+  providers: [ChatService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
