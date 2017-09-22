@@ -10,6 +10,16 @@ export class ChatService {
     // this.chats = af.list('/chats');
   }
 
+  cargarMensajes(){
+    this.chats = this.af.list('/chats', {
+      query:{
+        limitToLast: 20,
+        orderByKey: true,
+      }
+    });
+    return this.chats;
+  }
+
   agregarMensaje( texto:string){
     let mensaje:Mensaje = {
       nombre:"Cuahutli Miguel",

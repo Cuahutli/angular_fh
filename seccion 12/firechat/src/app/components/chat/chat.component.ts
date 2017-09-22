@@ -8,7 +8,13 @@ import { ChatService } from "../../services/chat.service";
 })
 export class ChatComponent implements OnInit {
   mensaje:string="";  
-  constructor(public _cs:ChatService) { }
+  constructor(public _cs:ChatService) {
+     this._cs.cargarMensajes()
+     .subscribe( (data)=>{
+       console.log("Mensajes cargados");
+       console.log(data);
+     })
+   }
 
   ngOnInit() {
   }
