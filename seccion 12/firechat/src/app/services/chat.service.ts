@@ -12,7 +12,6 @@ export class ChatService {
   usuario:any = null;
 
   constructor(private af: AngularFireDatabase, public afAuth:AngularFireAuth) {
-    // this.chats = af.list('/chats');
     if (localStorage.getItem('usuario')){
       this.usuario = JSON.parse(localStorage.getItem('usuario'));
     }

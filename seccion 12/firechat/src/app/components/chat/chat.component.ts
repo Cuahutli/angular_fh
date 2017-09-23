@@ -13,7 +13,6 @@ export class ChatComponent implements OnInit {
   constructor(public _cs:ChatService) {
      this._cs.cargarMensajes()
      .subscribe( ()=>{
-      //  console.log("Mensajes cargados");
       setTimeout( ()=>{
         this.elemento.scrollTop = this.elemento.scrollHeight;
       }, 100);
@@ -30,10 +29,8 @@ export class ChatComponent implements OnInit {
     }else{
       this._cs.agregarMensaje(this.mensaje) //aqui está la promesa
       .then( ()=>{
-        console.log("echo");
       })
       .catch(()=>{
-        console.error("error");
       });
 
       this.mensaje="";
