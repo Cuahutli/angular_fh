@@ -41,8 +41,10 @@ export class ChatService {
     let provider:any;
     if(proveedor === "google"){
       provider = new firebase.auth.GoogleAuthProvider();
-    }else{
+    }else if (proveedor === 'twitter'){
       provider = new firebase.auth.TwitterAuthProvider();
+    }else{
+      provider = new firebase.auth.FacebookAuthProvider();
     }
     this.afAuth.auth.signInWithPopup(provider)  //regresa una promesa
     .then( (resp)=>{
