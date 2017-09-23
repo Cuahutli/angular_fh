@@ -28,10 +28,11 @@ export class ChatService {
     return this.chats;
   }
 
-  agregarMensaje( texto:string){
+  agregarMensaje(texto:string){
     let mensaje:Mensaje = {
-      nombre:"Cuahutli Miguel",
-      mensaje:texto
+      nombre:this.usuario.displayName,
+      mensaje:texto,
+      uid: this.usuario.uid
     }
 
     return this.chats.push(mensaje); // regresa una promesa
