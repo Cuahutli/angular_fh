@@ -18,11 +18,11 @@ export class PeliculasService {
     let hasta = new Date();
     hasta.setDate( hasta.getDate() + 7);
 
-    let desdeStr  = `${ desde.getFullYear() }-${ desde.getMonth() + 1 }-${ desde.getDay() }`;
-    let hastaStr  = `${ hasta.getFullYear() }-${ hasta.getMonth() + 1 }-${ hasta.getDay() }`;
+    let desdeStr  = `${ desde.getFullYear() }-${ desde.getMonth() + 1 }-${ desde.getDate() }`;
+    let hastaStr  = `${ hasta.getFullYear() }-${ hasta.getMonth() + 1 }-${ hasta.getDate() }`;
     
     let url = `${ this.urlMoviedb }/discover/movie?primary_release_date.gte=${ desdeStr }&primary_release_date.lte=${ hastaStr }&api_key=${ this.apikey }&language=es&callback=JSONP_CALLBACK`;
-    
+    console.log(url);
     return this.jsonp.get( url )
                 .map( res=> res.json().results);
   }
