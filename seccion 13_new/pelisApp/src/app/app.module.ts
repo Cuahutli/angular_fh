@@ -18,6 +18,7 @@ import { PeliculaImagenPipe } from './pipes/pelicula-imagen.pipe';
 
 // Constante rutas
 import { APP_ROUTING } from "./app.routes";
+import { GaleriaComponent } from './components/home/galeria.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { APP_ROUTING } from "./app.routes";
     HomeComponent,
     PeliculaComponent,
     BuscarComponent,
-    PeliculaImagenPipe
+    PeliculaImagenPipe,
+    GaleriaComponent
   ],
   imports: [
     BrowserModule
