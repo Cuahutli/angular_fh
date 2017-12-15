@@ -13,6 +13,10 @@ import { HomeComponent } from './components/home/home.component';
 import { PeliculaComponent } from './components/pelicula/pelicula.component';
 import { BuscarComponent } from './components/buscar/buscar.component';
 
+// pipes
+import { PeliculaImagenPipe } from './pipes/pelicula-imagen.pipe';
+
+// Constante rutas
 import { APP_ROUTING } from "./app.routes";
 
 @NgModule({
@@ -21,7 +25,8 @@ import { APP_ROUTING } from "./app.routes";
     NavbarComponent,
     HomeComponent,
     PeliculaComponent,
-    BuscarComponent
+    BuscarComponent,
+    PeliculaImagenPipe
   ],
   imports: [
     BrowserModule
