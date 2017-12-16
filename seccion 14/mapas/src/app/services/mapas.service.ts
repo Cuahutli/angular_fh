@@ -20,6 +20,11 @@ export class MapasService {
     this.marcadores.push(marcador)
   }
 
+  borrarMarcador(index:number){
+    this.marcadores.splice(index, 1);
+    this.guardarMarcadores();
+  }
+
   guardarMarcadores(){
     localStorage.setItem('marcadores', JSON.stringify(this.marcadores))
   }
