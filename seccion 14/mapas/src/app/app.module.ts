@@ -8,6 +8,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AgmCoreModule } from "@agm/core";
 import { AgmCircle } from '@agm/core/directives/circle';
 
+// servicios
+import { MapasService } from "./services/mapas.service";
+
 
 @NgModule({
   declarations: [
@@ -20,7 +23,7 @@ import { AgmCircle } from '@agm/core/directives/circle';
       apiKey: "AIzaSyCWKX9O8IAxfil4VHTD9DTXtxOM1LRAgOE"
     })
   ],
-  providers: [],
+  providers: [MapasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

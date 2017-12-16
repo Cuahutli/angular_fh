@@ -9,5 +9,5 @@ export class AppComponent {
   title = 'app';
   lat:number = 21.473311;
   lng:number =  -104.855755;
-  zoom:number= 17;
+  zoom:number= 15;
 }
