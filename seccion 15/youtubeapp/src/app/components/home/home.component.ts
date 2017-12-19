@@ -13,7 +13,6 @@ export class HomeComponent implements OnInit {
   videoSel:any;
   constructor(public _yts:YoutubeService) {
     this._yts.getVideos().subscribe(videos =>{
-      console.log(videos);
       this.videos = videos;
     });
    }
@@ -24,6 +23,17 @@ export class HomeComponent implements OnInit {
   verVideo(video:any){
     this.videoSel = video;
     $('#myModal').modal();
+  }
+  
+  cerrarModal(){
+    this.videoSel=null;
+    $('#myModal').modal('hide');
+  }
+
+  cargarMas(){
+    this._yts.getVideos().subscribe(videos =>{
+      this.videos.push.apply(this.videos, videos);
+    });
   }
 
 }
